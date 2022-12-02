@@ -5,11 +5,8 @@ import Title from "./Title";
 type Props = {
   paymentDueDays?: Number;
 };
-const columns = [
-  { header: "Description" },
-  { header: "Rate(Monthly)" },
-  { header: "Subtotal" },
-];
+
+const columns = ["Description", "RateMonthly", "Subtotal"];
 
 const data = [
   { description: "Consulting", rate: "$ 12, 345.00", subtotal: "$ 12, 345.00" },
@@ -24,7 +21,7 @@ const InvoiceCard = (props: Props) => {
     <div className="w-1/2 mx-auto border border-black">
       <div className="p-10">
         <Title title={"Invoice"} />
-        <h3 className="text-xl font-medium mt-3">Cpent - Zap</h3>
+        <h3 className="text-xl font-medium mt-3">Client - Zap</h3>
         <div className="flex items-start justify-between">
           <div>
             <p>Date Period:June 1-30 2020 </p>

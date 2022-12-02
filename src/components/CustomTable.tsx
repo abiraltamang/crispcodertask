@@ -1,8 +1,8 @@
 import React from "react";
 
 type Props = {
-  columns: any;
-  data: any;
+  columns: Array<"string">;
+  data: Array<{ description: string; rate: string; subtotal: string }>;
 };
 
 const CustomTable = (props: Props) => {
@@ -13,41 +13,28 @@ const CustomTable = (props: Props) => {
         <table className="w-full">
           <thead className="text-right">
             <tr className="border-b-2 border-black">
-              <th className="w-80 text-left">Description</th>
-              <th>Rate(Monthly)</th>
-              <th>Subtotal</th>
-              {/* {columns &&
-                columns.map((head: any, index: any) => (
-                  <th className="text-left" key={index}>
-                    {head.header}
-                  </th>
-                ))} */}
+              <th className="w-80 text-left">{columns[0]}</th>
+              <th>{columns[1]}</th>
+              <th>{columns[2]}</th>
             </tr>
           </thead>
           <tbody className="text-right">
             <tr>
               <td className="text-left">
-                <p className="font-medium">Design Services</p>
-                <p>Consulting</p>
+                <p>{data[0].description}</p>
               </td>
               <td>{data[0].rate}</td>
               <td>{data[0].subtotal}</td>
             </tr>
-            <tr>
-              <td className="text-left">
-                <p className="text-left font-medium mt-6">Expenses</p>
-                {data[1].description}
-              </td>
-              <td colSpan={2}>{data[1].subtotal}</td>
-            </tr>
-            <tr>
-              <td className="text-left">{data[2].description}</td>
-              <td colSpan={2}>{data[2].subtotal}</td>
-            </tr>
-            <tr>
-              <td className="text-left">{data[3].description}</td>
-              <td colSpan={2}>{data[3].subtotal}</td>
-            </tr>
+            {data &&
+              data
+                .slice(1)
+                .map((item: Props["data"][number], index: number) => (
+                  <tr key={index}>
+                    <td className="text-left">{item.description}</td>
+                    <td colSpan={2}>{item.subtotal}</td>
+                  </tr>
+                ))}
           </tbody>
         </table>
       </div>
