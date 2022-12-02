@@ -19,12 +19,18 @@ const CustomTable = (props: Props) => {
             </tr>
           </thead>
           <tbody className="text-right">
+            <tr className="text-left font-medium">
+              <td colSpan={3}>Design Services</td>
+            </tr>
             <tr>
               <td className="text-left">
                 <p>{data[0].description}</p>
               </td>
               <td>{data[0].rate}</td>
               <td>{data[0].subtotal}</td>
+            </tr>
+            <tr className="text-left font-medium ">
+              <td colSpan={3}>Expenses</td>
             </tr>
             {data &&
               data
